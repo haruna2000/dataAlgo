@@ -132,6 +132,7 @@ class BinarySearchTree {
     }
     return root;
   }
+
   levelOrder() {
     if (this.root) {
       let queue = [];
