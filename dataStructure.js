@@ -19,6 +19,8 @@ console.log(obj["name"]);
 console.log((obj["name"] = "Brush"));
 console.log(obj.sayHello());
 console.log(obj);
+delete obj["name"];
+delete obj["age"];
 let keys = Object.entries(obj);
 console.log(keys);
 
@@ -26,7 +28,6 @@ console.log(keys);
 //   console.log(item);
 // }
 // for ( let item of Object.entries( obj ) ) {
-
 //     console.log(item)
 // }
 let set = new Set([1, 2, 3]);
