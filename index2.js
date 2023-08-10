@@ -18,11 +18,14 @@ function hashTable() {
     if (table[index]) {
       return table[index].find((e) => e[0] === key);
     }
-    return "undfind";
+    return "not found";
   };
   this.set = (key, value) => {
     let index = hash(key);
     if (table[index]) {
+      for (let i = 0; i < table[index].length; i++) {
+        if (table[index][i][0] === key) return (table[index][i][1] = value);
+      }
       return table[index].push([key, value]);
     }
     return (table[index] = [[key, value]]);
@@ -31,8 +34,7 @@ function hashTable() {
     let index = hash(key);
     if (table[index]) {
       for (let i = 0; i < table[index].length; i++) {
-        if (table[index][i][0] === key) table[index].splice(0, 1);
-        return;
+        if (table[index][i][0] === key) return table[index].splice(i, 1);
       }
       return "item key not  found";
     }
@@ -41,9 +43,10 @@ function hashTable() {
 
 let table = new hashTable();
 table.set("fname", "haruna");
-table.set("lash", "haruna");
+table.set("fname", "musa");
+table.set("lname", "sadiq");
 table.set("age", 88);
 table.set("level", 300);
 console.log(table.get("age"));
-console.log(table.remove("age"));
+// console.log(table.remove("level"));
 table.print();
