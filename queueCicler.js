@@ -203,21 +203,44 @@ class CircularQueue {
   peek() {
     return this.items[this.front];
   }
-  print() {}
+  // print() {
+  //     // let i;
+  //     let str = ''
+  //     for ( let i = this.front; i !== this.tail + 1; i++ ) {
+  //         str += this.items[i % this.capacity] + " ";
+  //         console.log(i% this.capacity)
+  //     }
+  //     // console.log(i);
+  //     // str += this.items[i % this.capacity];
+  //     console.log( str)
+  // }
+  print() {
+    if (this.isEmpty()) {
+      return "this items is empty";
+    }
+    let str = "";
+    for (let i = this.front; i !== this.tail + 1; i++) {
+      str += this.items[i % this.capacity] + " ";
+    }
+    return str;
+  }
 }
 
 let cq = new CircularQueue(5);
 cq.enqueue(2);
 cq.enqueue(3);
 cq.enqueue(4);
+cq.dequeue();
+cq.dequeue();
 cq.enqueue(6);
 cq.enqueue(8);
-// cq.dequeue();
-// cq.dequeue();
-// cq.dequeue();
+cq.dequeue();
+cq.dequeue();
+cq.enqueue(1);
 cq.enqueue(16);
 cq.enqueue(118);
 cq.enqueue(11);
 console.log(cq.isEmpty());
 console.log(cq.peek());
+console.log(cq.print());
 console.log(cq.items);
